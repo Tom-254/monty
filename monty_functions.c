@@ -4,7 +4,7 @@
  * nop - Does nothing.
  *
  * @node: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @line_number: Interger representing the line number of the opcode.
  */
 void nop(stack_t **node, unsigned int line_number)
 {
@@ -16,7 +16,7 @@ void nop(stack_t **node, unsigned int line_number)
  * print_top - Prints the top node of the stack.
  *
  * @node: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @line_number: Interger representing the line number of the opcode.
  */
 void print_top(stack_t **node, unsigned int line_number)
 {
@@ -35,7 +35,7 @@ void print_top(stack_t **node, unsigned int line_number)
  * push_stack - Adds a node to the stack front.
  *
  * @node: Pointer to the new node.
- * @line_number: Interger representing the line number of of the opcode.
+ * @line_number: Interger representing the line number of the opcode.
  */
 void push_stack(stack_t **node, unsigned int line_number)
 {
@@ -53,7 +53,7 @@ void push_stack(stack_t **node, unsigned int line_number)
  *
  *
  * @node: pointer to the head of the list to print
- * @line_number: Interger representing the line number of of the opcode.
+ * @line_number: Interger representing the line number of the opcode.
  */
 
 void print_stack(stack_t **node, unsigned int line_number)

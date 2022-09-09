@@ -52,10 +52,12 @@ void find_function(char *opcode, char *value, unsigned int line_number);
 void print_stack(stack_t **node, unsigned int line_number);
 void print_top(stack_t **node, unsigned int line_number);
 void pop_top(stack_t **node, unsigned int line_number);
-void swap_nodes(stack_t **node, unsigned int line_number);
+void swap_top(stack_t **node, unsigned int line_number);
 void pass_string(char *str, unsigned int line_number);
 void free_stack(void);
 void pass_string(char *str, unsigned int line_number);
 void add_top(stack_t **node, unsigned int line_number);
+void sub_top(stack_t **node, unsigned int line_number);
+void div_top(stack_t **node, unsigned int line_number);
 
 #endif

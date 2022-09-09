@@ -69,8 +69,9 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"pint", print_top},
 		{"nop", nop},
 		{"pop", pop_top},
-		{"swap", swap_nodes},
-		{"add", add_top},
+		{"swap", swap_top},
+		{"div", div_top},
+		{"sub", sub_top},
 		{NULL, NULL}
 	};
 	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
