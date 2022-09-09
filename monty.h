@@ -44,10 +44,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* extern stack_t *head; */
+extern stack_t *head;
 
 void nop(stack_t **node, unsigned int line_number);
 void push_stack(stack_t **node, unsigned int line_number);
 void find_function(char *opcode, char *value, unsigned int line_number);
+void print_stack(stack_t **node, unsigned int line_number);
+void print_top(stack_t **node, unsigned int line_number);
+void pop_top(stack_t **node, unsigned int line_number);
+void swap_nodes(stack_t **node, unsigned int line_number);
+void pass_string(char *str, unsigned int line_number );
+void free_stack(void);
+void pass_string(char *str, unsigned int line_number );
 
 #endif
