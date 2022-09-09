@@ -87,8 +87,8 @@ void mul_top(stack_t **node, unsigned int line_number)
 	}
 
 	(*node) = (*node)->next;
-	mul = (*node)->n * (*node)->prev->n;
-	(*node)->n = mul;
+	sum = (*node)->n * (*node)->prev->n;
+	(*node)->n = sum;
 	free((*node)->prev);
 	(*node)->prev = NULL;
 }
