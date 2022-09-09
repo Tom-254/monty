@@ -43,6 +43,7 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"nop", nop},
 		{"pop", pop_top},
 		{"swap", swap_nodes},
+		{"add", add_top},
 		{NULL, NULL}
 	};
 
