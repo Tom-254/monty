@@ -108,7 +108,7 @@ void div_top(stack_t **node, unsigned int line_number)
 {
 	int div;
 
-	if (node == NULL || *node == NULL || (*node)->next == NULL)
+	if ((*node)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
