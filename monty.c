@@ -25,7 +25,7 @@ void free_stack(void)
  * Return: nothing
  */
 
-void pass_string(char *str, unsigned int line_number )
+void pass_string(char *str, unsigned int line_number)
 {
 	char *token;
 	char *opcode;
@@ -61,7 +61,8 @@ void read_file(char *filename)
 		exit(EXIT_FAILURE);
 	}
 	line_read = NULL;
-	for (line_num = 1; (len = getline(&line_read, &buffer_size, fd)) != -1 ; line_num++)
+	for (line_num = 1; (len = getline(&line_read,
+		&buffer_size, fd)) != -1 ; line_num++)
 		pass_string(line_read, line_num);
 
 	free(line_read);
@@ -80,7 +81,7 @@ int main(int argc, char **argv)
 {
 	stack_t *head = NULL;
 
-	if (argc != 2 )
+	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
