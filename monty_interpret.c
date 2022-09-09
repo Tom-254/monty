@@ -63,15 +63,14 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 	int i, converted_value;
 	stack_t *node;
 	instruction_t funct_list[] = {
-		{"push", push_stack},
-		{"pall", print_stack},
-		{"pint", print_top},
+		{"push", push_stack}, {"pall", print_stack}, {"pint", print_top},
 		{"nop", nop},
 		{"pop", pop_top},
 		{"swap", swap_top},
 		{"div", div_top},
 		{"sub", sub_top},
 		{"mul", mul_top},
+		{"add", add_top},
 		{NULL, NULL}
 	};
 	if (opcode[0] == '#')
