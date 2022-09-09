@@ -10,7 +10,6 @@ void nop(stack_t **node, unsigned int line_number)
 {
 	(void)node;
 	(void)line_number;
-	return;
 }
 
 /**
@@ -51,7 +50,6 @@ void push_stack(stack_t **node, unsigned int line_number)
  *
  * @node: pointer to the head of the list to print
  * @line_number: Interger representing the line number of of the opcode.
- * Return: the number of nodes
  */
 
 void print_stack(stack_t **node, unsigned int line_number)
@@ -60,7 +58,7 @@ void print_stack(stack_t **node, unsigned int line_number)
 
 	(void)line_number;
 	if (node == NULL)
-			exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 
 	for (; temp != NULL;)
 	{
