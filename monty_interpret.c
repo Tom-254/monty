@@ -75,8 +75,9 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"mul", mul_top},
 		{NULL, NULL}
 	};
-	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
-		print_push_error(line_number);
+
+	if (opcode[0] == '#')
+		return;
 
 	if (!strcmp(value, "error") == 0)
 	{
