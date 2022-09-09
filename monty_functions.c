@@ -23,6 +23,7 @@ void print_top(stack_t **node, unsigned int line_number)
 	(void)line_number;
 
 	if (node == NULL || *node == NULL)
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty", line_number)
 
 	printf("%d\n", (*node)->n);
 }
