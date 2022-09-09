@@ -46,6 +46,11 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"add", add_top},
 		{NULL, NULL}
 	};
+	if (!strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: usage: push integer", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	if (!strcmp(value, "error") == 0)
 	{

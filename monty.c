@@ -67,7 +67,6 @@ void read_file(char *filename)
 
 	free(line_read);
 	fclose(fd);
-	return (0);
 }
 
 
