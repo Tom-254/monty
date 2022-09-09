@@ -84,7 +84,7 @@ void sub_top(stack_t **node, unsigned int line_number)
 {
 	int sub;
 
-	if (node == NULL || *node == NULL || (*node)->next == NULL)
+	if (*node == NULL || (*node)->next == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
