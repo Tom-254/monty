@@ -1,18 +1,26 @@
 #include "monty.h"
 
 
-void nop(stack_t **head, int line_number)
+void nop(stack_t **node, unsigned int line_number)
 {
+    (void)node;
+    (void)line_number;
     return;
 }
 
-void print_top(stack_t **head, int line_number)
+void print_top(stack_t **node, unsigned int line_number)
 {
-    dprintf(STDOUT_FILENO, (*head)->n);
+    (void)node;
+    (void)line_number;
+    /* dprintf(STDOUT_FILENO, "%d",(*node)->n); */
+
 }
 
-void push_stack(stack_t **head, int line_number)
+void push_stack(stack_t **node, unsigned int line_number)
 {
-    add_dnodeint()
+    (void)node;
+    (void)line_number;
+    printf("inside");
+    /* add_dnodeint(); */
 }
 

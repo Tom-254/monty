@@ -6,37 +6,19 @@
  * @param str
  */
 
-void trim(char * str)
+void pass_string(char *str, unsigned int line_number )
 {
-    int index, i;
+    char *token;
+    char *opcode;
+    char *value;
 
-    index = 0;
-    while(str[index] == ' ' || str[index] == '\t' || str[index] == '\n')
-    {
-        index++;
-    }
+    token = strtok(str, "\n \t\r");
+    opcode = token;
+    token = strtok(NULL, "\n \t\r");
+    value = token ? token : "error";
 
-    i = 0;
-    while(str[i + index] != '\0')
-    {
-        str[i] = str[i + index];
-        i++;
-    }
-    str[i] = '\0';
 
-    i = 0;
-    index = -1;
-    while(str[i] != '\0')
-    {
-        if(str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
-        {
-            index = i;
-        }
-
-        i++;
-    }
-
-    str[index + 1] = '\0';
+    find_function(opcode, value, line_number);
 }
 
 /**
@@ -47,17 +29,12 @@ void trim(char * str)
  * @return int
  */
 
-int read_file(stack_t **head, char *filename)
+int read_file(char *filename)
 {
     FILE *fd;
     char *line_read;
     size_t buffer_size;
-    int i;
-
-    (void)head;
-
-    if (head == NULL)
-		exit(EXIT_FAILURE);
+    unsigned int line_num;
 
     fd = fopen(filename, "r");
     if (fd == NULL)
@@ -65,12 +42,15 @@ int read_file(stack_t **head, char *filename)
         perror("Error");
         return (1);
     }
-
-    for (i = 1; getline(&line_read, &buffer_size, fd) != -1 ; i++)
+    printf("hello");
+    for (line_num = 1; getline(&line_read, &buffer_size, fd) != -1 ; line_num++)
     {
-        trim(line_read);
-        printf("%s", line_read);
+        printf("hello");
+        pass_string(line_read, line_num);
+        /* printf("%s\n", line_read); */
     }
+
+    printf("hello");
 
     free(line_read);
     fclose(fd);
@@ -85,40 +65,17 @@ int read_file(stack_t **head, char *filename)
  * @param argv
  * @return int
  */
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **environ)
 {
-    stack_t *head;
-    stack_t *new;
-    stack_t hello = {8, NULL, NULL};
-    (void)argv;
-
+    (void)environ;
     if (argc != 2 )
     {
         dprintf(STDERR_FILENO, "USAGE: monty file\n");
         exit(EXIT_FAILURE);
     }
 
-    head = &hello;
-
-    new = malloc(sizeof(stack_t));
-    if (new == NULL)
-    {
-        dprintf(2, "Error: Can't malloc\n");
-        return (EXIT_FAILURE);
-    }
-
-    new->n = 9;
-    head->prev = new;
-    new->next = head;
-    new->prev = NULL;
-    head = new;
-
-    /* n = print_stack(head);
-
-    printf("-> %d elements\n", n); */
-
-    read_file(&head, argv[1]);
-    free(new);
+    printf("hello");
+    read_file(argv[1]);
     return (EXIT_SUCCESS);
 }
 

@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -27,6 +28,8 @@ typedef struct stack_s
 } stack_t;
 
 
+
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -41,16 +44,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* extern stack_t *head; */
 
-
-size_t print_stack(const stack_t *h);
-size_t dlistint_len(const stack_t *h);
-stack_t *add_dnodeint(stack_t **head, const int n);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
-void free_dlistint(stack_t *head);
-stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
-int sum_dlistint(stack_t *head);
-stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
-int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+void nop(stack_t **node, unsigned int line_number);
+void push_stack(stack_t **node, unsigned int line_number);
+void find_function(char *opcode, char *value, unsigned int line_number);
 
 #endif
