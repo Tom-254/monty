@@ -72,6 +72,7 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"swap", swap_top},
 		{"div", div_top},
 		{"sub", sub_top},
+		{"mul", mul_top},
 		{NULL, NULL}
 	};
 	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)

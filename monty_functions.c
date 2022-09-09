@@ -71,3 +71,25 @@ void print_stack(stack_t **node, unsigned int line_number)
 	}
 }
 
+/**
+ * mul_top - divides the top two elements of the stack.
+ * @node: Pointer to a pointer pointing to top node.
+ * @line_number: Interger representing the line number of the opcode.
+ */
+void mul_top(stack_t **node, unsigned int line_number)
+{
+	int mul;
+
+	if (*node == NULL || (*node)->next == NULL)
+	{
+		dprintf(STDOUT_FILENO, "L%u: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*node) = (*node)->next;
+	mul = (*node)->n * (*node)->prev->n;
+	(*node)->n = mul;
+	free((*node)->prev);
+	(*node)->prev = NULL;
+}
+

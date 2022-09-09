@@ -114,7 +114,7 @@ void div_top(stack_t **node, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*node)->n == 0)
+	if (*node == NULL || (*node)->n == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);

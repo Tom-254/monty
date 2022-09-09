@@ -59,5 +59,6 @@ void pass_string(char *str, unsigned int line_number);
 void add_top(stack_t **node, unsigned int line_number);
 void sub_top(stack_t **node, unsigned int line_number);
 void div_top(stack_t **node, unsigned int line_number);
+void mul_top(stack_t **node, unsigned int line_number);
 
 #endif
