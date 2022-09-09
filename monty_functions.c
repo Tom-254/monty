@@ -82,7 +82,7 @@ void mul_top(stack_t **node, unsigned int line_number)
 
 	if (*node == NULL || (*node)->next == NULL)
 	{
-		dprintf(STDOUT_FILENO, "L%u: can't mul, stack too short\n", line_number);
+		printf("L%u: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
