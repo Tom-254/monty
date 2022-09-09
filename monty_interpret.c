@@ -24,6 +24,33 @@ stack_t *create_node(int value)
 }
 
 /**
+ * check_if_int - check to see if value passed is integer
+ *
+ * @value: char representing the number to be added to list
+ * @num: Integer repsenting num to add to list
+ * Return: integer
+ */
+
+int check_if_int(char *value, int num)
+{
+	if (!strcmp(value, "0") == 0 && num == 0)
+		return (1);
+	return (0);
+}
+
+/**
+ * print_push_error - returns error on push
+ *
+ * @line_number: Interger representing the line number of of the opcode.
+ *
+ */
+void print_push_error(int line_number)
+{
+	dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+	exit(EXIT_FAILURE);
+}
+
+/**
  * find_function - finds the correct function to execute opcode
  *
  * @opcode: the instruction code
@@ -47,14 +74,13 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{NULL, NULL}
 	};
 	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
-	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		print_push_error(line_number);
 
 	if (!strcmp(value, "error") == 0)
 	{
 		converted_value = atoi(value);
+		if (check_if_int(value, converted_value))
+			print_push_error(line_number);
 		node = create_node(converted_value);
 		for (i = 0; funct_list[i].opcode;  i++)
 			if (strcmp(funct_list[i].opcode, opcode) == 0)
