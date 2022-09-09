@@ -1,6 +1,6 @@
 #include "monty.h"
 
-stack_t *head = NULL;
+stack_t *head;
 
 /**
  * free_stack - function that frees a stack_t.

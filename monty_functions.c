@@ -66,7 +66,7 @@ void print_stack(stack_t **node, unsigned int line_number)
 
 	for (; temp != NULL;)
 	{
-		printf("%d\n", temp->n);
+		dprintf(STDOUT_FILENO, "%d\n", temp->n);
 		temp = temp->next;
 	}
 }
