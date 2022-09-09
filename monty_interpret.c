@@ -60,8 +60,7 @@ void print_push_error(int line_number)
  */
 void find_function(char *opcode, char *value, unsigned int line_number)
 {
-	int i;
-	int converted_value;
+	int i, converted_value;
 	stack_t *node;
 	instruction_t funct_list[] = {
 		{"push", push_stack},
@@ -75,10 +74,10 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"mul", mul_top},
 		{NULL, NULL}
 	};
-
 	if (opcode[0] == '#')
 		return;
-
+	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
+		print_push_error(line_number);
 	if (!strcmp(value, "error") == 0)
 	{
 		converted_value = atoi(value);
