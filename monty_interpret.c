@@ -73,10 +73,14 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"add", add_top},
 		{NULL, NULL}
 	};
+	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
+		print_push_error(line_number);
 
 	if (!strcmp(value, "error") == 0)
 	{
 		converted_value = atoi(value);
+		if (check_if_int(value, converted_value))
+			print_push_error(line_number);
 		node = create_node(converted_value);
 		for (i = 0; funct_list[i].opcode;  i++)
 			if (strcmp(funct_list[i].opcode, opcode) == 0)
