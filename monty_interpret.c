@@ -14,7 +14,7 @@ stack_t *create_node(int value)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new->n = value;
@@ -46,9 +46,9 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"add", add_top},
 		{NULL, NULL}
 	};
-	if (!strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
+	if (strcmp(value, "error") == 0 && strcmp(opcode, "push") == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer", line_number);
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -70,7 +70,7 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 				funct_list[i].f(&head, line_number);
 				return;
 			}
-	dprintf(STDERR_FILENO, "L%d: unknown instruction %s", line_number, opcode);
+	dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
 

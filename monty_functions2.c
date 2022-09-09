@@ -15,7 +15,7 @@ void pop_top(stack_t **node, unsigned int line_number)
 
 	if (node == NULL || *node == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -38,7 +38,7 @@ void swap_nodes(stack_t **node, unsigned int line_number)
 
 	if (node == NULL || *node == NULL || (*node)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -64,7 +64,7 @@ void add_top(stack_t **node, unsigned int line_number)
 
 	if (node == NULL || *node == NULL || (*node)->next == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't add, stack too short", line_number);
+		dprintf(STDERR_FILENO, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 

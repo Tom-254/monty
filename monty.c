@@ -1,5 +1,7 @@
 #include "monty.h"
 
+stack_t *head = NULL;
+
 /**
  * free_stack - function that frees a stack_t.
  *
@@ -78,7 +80,6 @@ void read_file(char *filename)
  */
 int main(int argc, char **argv)
 {
-	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
