@@ -65,11 +65,11 @@ void print_stack(stack_t **node, unsigned int line_number)
 
 	(void)line_number;
 	if (node == NULL)
-		return;
+		exit(EXIT_FAILURE);
 
 	for (; temp != NULL;)
 	{
-		dprintf(STDOUT_FILENO, "%d\n", temp->n);
+		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
 }
