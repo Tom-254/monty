@@ -125,7 +125,7 @@ void rotr(stack_t **node, unsigned int line_number)
 	stack_t *tmp;
 	(void)line_number;
 
-	if (node == NULL || *node == NULL || (*node)->next == NULL)
+	if (*node == NULL || (*node)->next == NULL)
 		return;
 
 	tmp = *node;
