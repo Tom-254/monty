@@ -7,7 +7,7 @@
  */
 void mod_top(stack_t **node, unsigned int line_number)
 {
-	int sum;
+	int mod;
 
 	if (node == NULL || (*node)->next == NULL)
 	{
@@ -22,8 +22,8 @@ void mod_top(stack_t **node, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*node) = (*node)->next;
-	sum = (*node)->n % (*node)->prev->n;
-	(*node)->n = sum;
+	mod = (*node)->n % (*node)->prev->n;
+	(*node)->n = mod;
 	free((*node)->prev);
 	(*node)->prev = NULL;
 }
