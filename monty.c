@@ -33,9 +33,9 @@ void pass_string(char *str, unsigned int line_number)
 	char *opcode;
 	char *value;
 
-	token = strtok(str, "\n \t\r");
+	token = strtok(str, "\n ");
 	opcode = token;
-	token = strtok(NULL, "\n \t\r");
+	token = strtok(NULL, "\n ");
 	value = token ? token : "error";
 
 
