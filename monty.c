@@ -29,14 +29,12 @@ void free_stack(void)
 
 void pass_string(char *str, unsigned int line_number)
 {
-	char *token;
-	char *opcode;
 	char *value;
+	char *opcode;
 
-	token = strtok(str, "\n ");
-	opcode = token;
-	token = strtok(NULL, "\n ");
-	value = token ? token : "error";
+	value = strtok(str, "\n \t\r");
+	opcode = value;
+	value = strtok(NULL, "\n \t\r");
 
 
 	find_function(opcode, value, line_number);

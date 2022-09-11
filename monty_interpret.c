@@ -24,21 +24,6 @@ stack_t *create_node(int value)
 }
 
 /**
- * check_if_int - check to see if value passed is integer
- *
- * @value: char representing the number to be added to list
- * @num: Integer repsenting num to add to list
- * Return: integer
- */
-
-int check_if_int(char *value, int num)
-{
-	if (!strcmp(value, "0") == 0 && num == 0)
-		return (1);
-	return (0);
-}
-
-/**
  * print_push_error - returns error on push
  *
  * @line_number: Interger representing the line number of of the opcode.
@@ -60,11 +45,15 @@ void handle_push(char *value, unsigned int line_number)
 {
 	int i;
 
-	if (value[0] == '-')
+	if (value != NULL && value[0] == '-')
 	{
 		/* push pointer to the next character */
 		value++;
 	}
+
+	if (value == NULL)
+		print_push_error(line_number);
+
 	for (i = 0; value[i] != '\0'; i++)
 		if (isdigit(value[i]) == 0)
 			print_push_error(line_number);
@@ -95,11 +84,10 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 	};
 	if (opcode[0] == '#')
 		return;
-	if (!strcmp(value, "error") == 0)
+	if (strcmp(opcode, "push") == 0)
 	{
+		handle_push(value, line_number);
 		converted_value = atoi(value);
-		if (strcmp(opcode, "push") == 0)
-			handle_push(value, line_number);
 		node = create_node(converted_value);
 		for (i = 0; funct_list[i].opcode;  i++)
 			if (strcmp(funct_list[i].opcode, opcode) == 0)

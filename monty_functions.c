@@ -39,6 +39,9 @@ void print_top(stack_t **node, unsigned int line_number)
  */
 void push_stack(stack_t **node, unsigned int line_number)
 {
+	if (node == NULL || *node == NULL)
+		exit(EXIT_FAILURE);
+
 	(void)line_number;
 
 	(*node)->prev = NULL;
@@ -62,7 +65,7 @@ void print_stack(stack_t **node, unsigned int line_number)
 
 	(void)line_number;
 	if (node == NULL)
-		exit(EXIT_FAILURE);
+		return;
 
 	for (; temp != NULL;)
 	{
