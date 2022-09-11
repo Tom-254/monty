@@ -64,7 +64,7 @@ void print_stack(stack_t **node, unsigned int line_number)
 	stack_t *temp = *node;
 
 	(void)line_number;
-	if (*node == NULL || node == NULL)
+	if (node == NULL || *node == NULL)
 		exit(EXIT_FAILURE);
 
 	for (; temp != NULL;)
