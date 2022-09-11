@@ -6,5 +6,5 @@ pint
     pint
 push 4
 pint
-mod
+add
 pint

@@ -69,7 +69,7 @@ void handle_push(char *value, unsigned int line_number)
  */
 void find_function(char *opcode, char *value, unsigned int line_number)
 {
-	int i, converted_value;
+	int i;
 	stack_t *node;
 	instruction_t funct_list[] = {
 		{"push", push_stack}, {"pall", print_stack}, {"pint", print_top},
@@ -81,6 +81,10 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"mul", mul_top},
 		{"add", add_top},
 		{"mod", mod_top},
+		{"pchar", print_char},
+		{"pstr", print_string},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	if (opcode[0] == '#')
@@ -88,8 +92,7 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 	if (strcmp(opcode, "push") == 0)
 	{
 		handle_push(value, line_number);
-		converted_value = atoi(value);
-		node = create_node(converted_value);
+		node = create_node(atoi(value));
 		for (i = 0; funct_list[i].opcode;  i++)
 			if (strcmp(funct_list[i].opcode, opcode) == 0)
 			{

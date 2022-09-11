@@ -62,5 +62,9 @@ void sub_top(stack_t **node, unsigned int line_number);
 void div_top(stack_t **node, unsigned int line_number);
 void mul_top(stack_t **node, unsigned int line_number);
 void mod_top(stack_t **node, unsigned int line_number);
+void print_char(stack_t **node, unsigned int line_number);
+void print_string(stack_t **node, unsigned int line_number);
+void rotl(stack_t **node, unsigned int line_number);
+void rotr(stack_t **node, unsigned int line_number);
 
 #endif
