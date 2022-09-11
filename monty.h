@@ -61,5 +61,6 @@ void add_top(stack_t **node, unsigned int line_number);
 void sub_top(stack_t **node, unsigned int line_number);
 void div_top(stack_t **node, unsigned int line_number);
 void mul_top(stack_t **node, unsigned int line_number);
+void mod_top(stack_t **node, unsigned int line_number);
 
 #endif

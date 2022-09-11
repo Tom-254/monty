@@ -80,6 +80,7 @@ void find_function(char *opcode, char *value, unsigned int line_number)
 		{"sub", sub_top},
 		{"mul", mul_top},
 		{"add", add_top},
+		{"mod", mod_top},
 		{NULL, NULL}
 	};
 	if (opcode[0] == '#')
