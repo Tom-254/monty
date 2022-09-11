@@ -70,7 +70,7 @@ void print_string(stack_t **node, unsigned int line_number)
 
 	if (node == NULL || *node == NULL)
 	{
-		printf("\n");
+		putchar('\n');
 		return;
 	}
 
@@ -78,12 +78,12 @@ void print_string(stack_t **node, unsigned int line_number)
 	while (tmp != NULL)
 	{
 		ch = tmp->n;
-		if (!isascii(ch))
+		if (!isascii(ch) || ch == 0)
 			break;
-		printf("%c", ch);
+		putchar(ch);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	putchar('\n');
 }
 
 /**
