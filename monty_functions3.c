@@ -98,9 +98,6 @@ void rotl(stack_t **node, unsigned int line_number)
 	stack_t *tmp;
 	(void)line_number;
 
-	if (node == NULL)
-		return;
-
 	tmp = *node;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
