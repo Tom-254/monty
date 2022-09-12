@@ -34,6 +34,9 @@ void pass_string(char *str, unsigned int line_number)
 
 	value = strtok(str, "\n \t\r");
 	opcode = value;
+	if (opcode == NULL)
+		return;
+
 	value = strtok(NULL, "\n \t\r");
 
 
